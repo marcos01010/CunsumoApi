@@ -1,8 +1,9 @@
-package com.example.cunsumoapi
+package com.example.cunsumoapi.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
+import com.example.cunsumoapi.R
 import com.squareup.picasso.Picasso
 
 class PhotoFull : AppCompatActivity() {

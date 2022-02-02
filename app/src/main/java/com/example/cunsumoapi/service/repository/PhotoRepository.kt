@@ -3,6 +3,7 @@ package com.example.cunsumoapi.service.repository
 import android.content.Context
 import com.example.cunsumoapi.service.listener.APIListener
 import com.example.cunsumoapi.service.model.PhotoModel
+import com.example.cunsumoapi.service.repository.local.PhotoDb
 import com.example.cunsumoapi.service.repository.remote.PhotoService
 import com.example.cunsumoapi.service.repository.remote.RetrofitClient
 import com.google.gson.Gson
@@ -12,6 +13,7 @@ import retrofit2.Response
 
 class PhotoRepository(val context: Context) {
     private val mRemote = RetrofitClient.createService(PhotoService::class.java)
+    private val mDb = PhotoDb.getDatabase(context).PhotoDAO()
 
     fun listar(listener: APIListener<List<PhotoModel>>){
         val call: Call<List<PhotoModel>> = mRemote.listar()
@@ -33,4 +35,13 @@ class PhotoRepository(val context: Context) {
             }
         })
     }
+
+    fun listar() = mDb.list()
+
+    fun save(list: List<PhotoModel>){
+        mDb.clear()
+        mDb.save(list)
+    }
+
+    fun countPhotos() = mDb.countPhotos()
 }

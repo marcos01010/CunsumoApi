@@ -1,12 +1,12 @@
-package com.example.cunsumoapi.view
+package com.example.cunsumoapi.view.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cunsumoapi.R
 import com.example.cunsumoapi.service.model.PhotoModel
+import com.example.cunsumoapi.view.viewHolder.PhotoViewHolder
 
 class PhotoAdapter : RecyclerView.Adapter<PhotoViewHolder>() {
     private var mList: List<PhotoModel> = arrayListOf()
