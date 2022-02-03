@@ -38,6 +38,8 @@ class PhotoRepository(val context: Context) {
 
     fun listar() = mDb.list()
 
+    fun listar(quantidadePaginas: Int,paginaStart: Int) = mDb.list(quantidadePaginas,paginaStart)
+
     fun save(list: List<PhotoModel>){
         mDb.clear()
         mDb.save(list)

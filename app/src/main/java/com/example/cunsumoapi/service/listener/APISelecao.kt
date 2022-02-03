@@ -1,5 +1,5 @@
 package com.example.cunsumoapi.service.listener
 
 interface APISelecao {
-    fun onSelectPagina()
+    fun onSelectPagina(paginasStart: Int)
 }

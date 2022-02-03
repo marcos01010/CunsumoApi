@@ -23,8 +23,8 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
     fun doListar(){
         mListar.value = mPhotoRepository.listar()
     }
-    fun doListar(paginaIncial: Int){
-        mListar.value = mPhotoRepository.listar()
+    fun doListar(quantidadePaginas: Int,paginaStart: Int){
+        mListar.value = mPhotoRepository.listar(quantidadePaginas,paginaStart)
     }
 
     fun listarFromWeb(){
@@ -48,7 +48,7 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
         for (i in 1..(totalPhotos/totalPorPaginas)){
             listaPaginas.add(i)
         }
-        mPreferences.edit().putInt("totalPhotos", totalPhotos).apply()
+        mPreferences.edit().putInt("ultimaPagina", totalPhotos/totalPorPaginas).apply()
         mQuantidadePhotos.value = listaPaginas
     }
 

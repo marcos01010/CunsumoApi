@@ -21,5 +21,5 @@ interface PhotoDAO {
     fun countPhotos(): Int
 
     @Query("SELECT * FROM photos LIMIT :qunatidade OFFSET :start")
-    fun listRange(qunatidade: Int, start: Int): List<PhotoModel>
+    fun list(qunatidade: Int, start: Int): List<PhotoModel>
 }
